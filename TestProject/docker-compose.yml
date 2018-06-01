@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  dockercore:
+    image: ${DOCKER_REGISTRY}dockercore
+    build:
+      context: .
+      dockerfile: DockerCore\Dockerfile
+
+  corefirst:
+    image: ${DOCKER_REGISTRY}corefirst
+    build:
+      context: .
+      dockerfile: CoreFirst\Dockerfile
+

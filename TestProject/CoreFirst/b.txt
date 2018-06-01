@@ -1,0 +1,20 @@
+1、百度为您找到相关结果约51个。。。但是提示没有找到该URL。这种url排除么？
+
+http://autofaccn.readthedocs.io/zh/latest/lifetime/disposal.html#id6
+
+
+2、百度为您找到相关结果约4个。。。首页第一，这种url符合要求，记录下来。
+
+http://www.cnblogs.com/wangjieguang/p/core-dapper-swagger.html
+
+
+3、百度为您找到相关结果约0个。。这种url过滤
+
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/aspnet-core-module?view=aspnetcore-2.0 
+
+
+4、百度为您找到相关结果约77个。。提示没有找到该URL。
+但是首页第一条 完整包含yh77yh7.com域名，证明是首页第一，，所以url符合要求，记录下来。
+
+  yh77yh7.com
+  https://blog.johnwu.cc/article/asp-net-core-filters.html 

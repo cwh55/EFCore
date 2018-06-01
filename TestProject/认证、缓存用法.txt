@@ -1,0 +1,95 @@
+//首先，在DI中注册服务认证所需的服务：
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme;
+            })
+                .AddCookie()
+                .AddOpenIdConnect(o =>
+                {
+                    o.ClientId = "server.hybrid";
+                    o.ClientSecret = "secret";
+                    o.Authority = "https://demo.identityserver.io/";
+                    o.ResponseType = Microsoft.IdentityModel.Protocols.OpenIdConnect.OpenIdConnectResponseType.CodeIdToken;
+                });
+
+
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) //增加Cookie认证
+            .AddCookie(
+                options=>{
+                    options.LoginPath = "/Account/Login1";
+                    options.AccessDeniedPath = "/Home/Abount";
+                }
+            ); //这里是可以设置默认的授权跳转的
+
+
+
+app.UseAuthentication(); //增加授权中间件
+
+
+
+
+
+
+
+
+#region
+            //var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("mysupersecret_secretkey!123"));
+            //var options = new Middleware.TokenProviderOptions
+            //{
+            //    Audience = "ExampleAudience",
+            //    Issuer = "ExampleIssuer",
+            //    SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256),
+            //};
+
+            //app.UseMiddleware<Middleware.TokenProviderMiddleware>(Options.Create(options));
+
+            #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ using (var entry = memoryCache.CreateEntry("test"))
+            {
+                entry.Value = "122332";
+            }
+
+            var exist = memoryCache.TryGetValue("test",out var value);
+
+
+
+            memoryCache.Set("test2", "AAABBBCCC",
+                       new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromDays(2))
+                   );
+
+           var sdf= memoryCache.GetOrCreate("test2", (entry) => { return entry.Value; });
+
+            var exist2 = memoryCache.TryGetValue("test2", out var value2);

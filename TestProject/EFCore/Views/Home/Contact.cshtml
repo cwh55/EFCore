@@ -1,0 +1,40 @@
+﻿@using EFCore.Models.Service
+@model IEnumerable<ToDoItem>
+@inject StatisticsService StatsService
+@*@inject EFCore.Infrastructure.ToDoItemRepository to*@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do Items</title>
+</head>
+<body>
+    <div>
+        <h1>To Do Items</h1>
+        <ul>
+            @*<li>Total Items: @StatsService.GetCount()</li>
+        <li>Completed: @StatsService.GetCompletedCount()</li>
+        <li>Avg. Priority: @StatsService.GetAveragePriority()</li>*@
+
+            <li>Total Items: @ViewData["Count"]</li>
+            <li>Completed: @ViewData["CompletedCount"]</li>
+            <li>Avg. Priority: @ViewData["AveragePriority"]</li>
+           
+        </ul>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Priority</th>
+                <th>Is Done?</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Priority</td>
+                    <td>@item.IsDone</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
